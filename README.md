@@ -51,13 +51,16 @@ sed -i "s|if (bind_user == 'REMOVED') {|if (bind_user == 'True') {|g" /www/serve
 搜索 "ltd": -1, "pro": -1 替换 "ltd": -1, "pro": 0 
 pro为0时为专业版永久授权
 
-6. 禁止解锁插件后自动修复为免费版
+6. 禁止宝塔面板检测升级，防止失效
+查找字符串：name": "coll_admin"，将这段里的update_mgs删除或者改为null
+
+7. 禁止解锁插件后自动修复为免费版
 文件路径：www/server/panel/data/repair.json
 查找字符串："id": 16，将这段修复权限的代码删除
 
-7. 限制修改
+8. 限制修改
 ```
 chattr +i /www/server/panel/data/plugin.json
 chattr +i /www/server/panel/data/repair.json
 ```
-8. 等修改完成，并且安装好付费插件后开启面板的离线模式。 不开离线模式宝塔下次打开还会自动读取云端列表，给你恢复未授权。 
+9. 等修改完成，并且安装好付费插件后开启面板的离线模式。 不开离线模式宝塔下次打开还会自动读取云端列表，给你恢复未授权。 
