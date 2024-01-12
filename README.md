@@ -43,7 +43,7 @@ chattr +i /www/server/panel/data/plugin.json
 sed -i "s|if (bind_user == 'REMOVED') {|if (bind_user == 'True') {|g" /www/server/panel/BTPanel/static/js/index.js
 ```
 
-宝塔破解付费插件
+5. 宝塔破解付费插件
 注：plugin.json需登录1次面板后生成
 
 文件路径：www/server/panel/data/plugin.json
@@ -51,12 +51,13 @@ sed -i "s|if (bind_user == 'REMOVED') {|if (bind_user == 'True') {|g" /www/serve
 搜索 "ltd": -1, "pro": -1 替换 "ltd": -1, "pro": 0 
 pro为0时为专业版永久授权
 
-禁止解锁插件后自动修复为免费版
+6. 禁止解锁插件后自动修复为免费版
 文件路径：www/server/panel/data/repair.json
 查找字符串："id": 16，将这段修复权限的代码删除
 
-限制修改
+7. 限制修改
 ```
 chattr +i /www/server/panel/data/plugin.json
 chattr +i /www/server/panel/data/repair.json
 ```
+8. 等修改完成，并且安装好付费插件后开启面板的离线模式。 不开离线模式宝塔下次打开还会自动读取云端列表，给你恢复未授权。 
